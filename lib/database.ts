@@ -50,11 +50,11 @@ const generateSponsorPassword = (): string => {
 
 // Initialize database with sample data if files don't exist
 const initDatabase = () => {
-  const events = readJsonFile(eventsFile);
-  const attendees = readJsonFile(attendeesFile);
-  const sponsors = readJsonFile(sponsorsFile);
-  const budgets = readJsonFile(budgetsFile);
-  const tasks = readJsonFile(tasksFile);
+  const events: Event[] = readJsonFile(eventsFile);
+  const attendees: Attendee[] = readJsonFile(attendeesFile);
+  const sponsors: Sponsor[] = readJsonFile(sponsorsFile);
+  const budgets: Budget[] = readJsonFile(budgetsFile);
+  const tasks: Task[] = readJsonFile(tasksFile);
 
   if (events.length === 0) {
     const sampleEvents = [
@@ -254,7 +254,7 @@ export interface Task {
 
 // Event operations
 export const createEvent = (event: Omit<Event, 'id' | 'created_at' | 'updated_at'>): Event => {
-  const events = readJsonFile(eventsFile);
+  const events: Event[] = readJsonFile(eventsFile);
   const newEvent: Event = {
     ...event,
     sponsor_password: generateSponsorPassword(),
@@ -270,16 +270,16 @@ export const createEvent = (event: Omit<Event, 'id' | 'created_at' | 'updated_at
 };
 
 export const getEvents = (): Event[] => {
-  return readJsonFile(eventsFile).sort((a: Event, b: Event) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  return readJsonFile(eventsFile);
 };
 
 export const getEventById = (id: string): Event | null => {
-  const events = readJsonFile(eventsFile);
+  const events: Event[] = readJsonFile(eventsFile);
   return events.find((event: Event) => event.id === id) || null;
 };
 
 export const updateEvent = (id: string, updates: Partial<Event>): Event | null => {
-  const events = readJsonFile(eventsFile);
+  const events: Event[] = readJsonFile(eventsFile);
   const eventIndex = events.findIndex(event => event.id === id);
   
   if (eventIndex === -1) return null;
@@ -295,8 +295,8 @@ export const updateEvent = (id: string, updates: Partial<Event>): Event | null =
 };
 
 export const deleteEvent = (id: string): boolean => {
-  const events = readJsonFile(eventsFile);
-  const eventIndex = events.findIndex(event => event.id === id);
+  const events: Event[] = readJsonFile(eventsFile);
+  const eventIndex = events.findIndex((event: Event) => event.id === id);
   
   if (eventIndex === -1) return false;
   
@@ -304,12 +304,12 @@ export const deleteEvent = (id: string): boolean => {
   writeJsonFile(eventsFile, events);
   
   // Also delete related attendees and sponsors
-  const attendees = readJsonFile(attendeesFile);
-  const filteredAttendees = attendees.filter(attendee => attendee.event_id !== id);
+  const attendees: Attendee[] = readJsonFile(attendeesFile);
+  const filteredAttendees = attendees.filter((attendee: Attendee) => attendee.event_id !== id);
   writeJsonFile(attendeesFile, filteredAttendees);
   
-  const sponsors = readJsonFile(sponsorsFile);
-  const filteredSponsors = sponsors.filter(sponsor => sponsor.event_id !== id);
+  const sponsors: Sponsor[] = readJsonFile(sponsorsFile);
+  const filteredSponsors = sponsors.filter((sponsor: Sponsor) => sponsor.event_id !== id);
   writeJsonFile(sponsorsFile, filteredSponsors);
   
   return true;
@@ -317,7 +317,7 @@ export const deleteEvent = (id: string): boolean => {
 
 // Attendee operations
 export const createAttendee = (attendee: Omit<Attendee, 'id' | 'created_at' | 'updated_at'>): Attendee => {
-  const attendees = readJsonFile(attendeesFile);
+  const attendees: Attendee[] = readJsonFile(attendeesFile);
   const newAttendee: Attendee = {
     ...attendee,
     id: Date.now().toString(),
@@ -332,22 +332,22 @@ export const createAttendee = (attendee: Omit<Attendee, 'id' | 'created_at' | 'u
 };
 
 export const getAttendees = (): Attendee[] => {
-  return readJsonFile(attendeesFile).sort((a, b) => new Date(b.created_at || '').getTime() - new Date(a.created_at || '').getTime());
+  return readJsonFile(attendeesFile);
 };
 
 export const getAttendeesByEventId = (eventId: string): Attendee[] => {
-  const attendees = readJsonFile(attendeesFile);
-  return attendees.filter(attendee => attendee.event_id === eventId);
+  const attendees: Attendee[] = readJsonFile(attendeesFile);
+  return attendees.filter((attendee: Attendee) => attendee.event_id === eventId);
 };
 
 export const getAttendeeById = (id: string): Attendee | null => {
-  const attendees = readJsonFile(attendeesFile);
-  return attendees.find(attendee => attendee.id === id) || null;
+  const attendees: Attendee[] = readJsonFile(attendeesFile);
+  return attendees.find((attendee: Attendee) => attendee.id === id) || null;
 };
 
 export const updateAttendee = (id: string, updates: Partial<Attendee>): Attendee | null => {
-  const attendees = readJsonFile(attendeesFile);
-  const attendeeIndex = attendees.findIndex(attendee => attendee.id === id);
+  const attendees: Attendee[] = readJsonFile(attendeesFile);
+  const attendeeIndex = attendees.findIndex((attendee: Attendee) => attendee.id === id);
   
   if (attendeeIndex === -1) return null;
   
@@ -362,8 +362,8 @@ export const updateAttendee = (id: string, updates: Partial<Attendee>): Attendee
 };
 
 export const deleteAttendee = (id: string): boolean => {
-  const attendees = readJsonFile(attendeesFile);
-  const attendeeIndex = attendees.findIndex(attendee => attendee.id === id);
+  const attendees: Attendee[] = readJsonFile(attendeesFile);
+  const attendeeIndex = attendees.findIndex((attendee: Attendee) => attendee.id === id);
   
   if (attendeeIndex === -1) return false;
   
@@ -375,7 +375,7 @@ export const deleteAttendee = (id: string): boolean => {
 
 // Sponsor operations
 export const createSponsor = (sponsor: Omit<Sponsor, 'id' | 'created_at' | 'updated_at'>): Sponsor => {
-  const sponsors = readJsonFile(sponsorsFile);
+  const sponsors: Sponsor[] = readJsonFile(sponsorsFile);
   const newSponsor: Sponsor = {
     ...sponsor,
     id: Date.now().toString(),
@@ -390,22 +390,22 @@ export const createSponsor = (sponsor: Omit<Sponsor, 'id' | 'created_at' | 'upda
 };
 
 export const getSponsors = (): Sponsor[] => {
-  return readJsonFile(sponsorsFile).sort((a, b) => new Date(b.created_at || '').getTime() - new Date(a.created_at || '').getTime());
+  return readJsonFile(sponsorsFile);
 };
 
 export const getSponsorsByEventId = (eventId: string): Sponsor[] => {
-  const sponsors = readJsonFile(sponsorsFile);
-  return sponsors.filter(sponsor => sponsor.event_id === eventId);
+  const sponsors: Sponsor[] = readJsonFile(sponsorsFile);
+  return sponsors.filter((sponsor: Sponsor) => sponsor.event_id === eventId);
 };
 
 export const getSponsorById = (id: string): Sponsor | null => {
-  const sponsors = readJsonFile(sponsorsFile);
-  return sponsors.find(sponsor => sponsor.id === id) || null;
+  const sponsors: Sponsor[] = readJsonFile(sponsorsFile);
+  return sponsors.find((sponsor: Sponsor) => sponsor.id === id) || null;
 };
 
 export const updateSponsor = (id: string, updates: Partial<Sponsor>): Sponsor | null => {
-  const sponsors = readJsonFile(sponsorsFile);
-  const sponsorIndex = sponsors.findIndex(sponsor => sponsor.id === id);
+  const sponsors: Sponsor[] = readJsonFile(sponsorsFile);
+  const sponsorIndex = sponsors.findIndex((sponsor: Sponsor) => sponsor.id === id);
   
   if (sponsorIndex === -1) return null;
   
@@ -420,8 +420,8 @@ export const updateSponsor = (id: string, updates: Partial<Sponsor>): Sponsor | 
 };
 
 export const deleteSponsor = (id: string): boolean => {
-  const sponsors = readJsonFile(sponsorsFile);
-  const sponsorIndex = sponsors.findIndex(sponsor => sponsor.id === id);
+  const sponsors: Sponsor[] = readJsonFile(sponsorsFile);
+  const sponsorIndex = sponsors.findIndex((sponsor: Sponsor) => sponsor.id === id);
   
   if (sponsorIndex === -1) return false;
   
@@ -433,7 +433,7 @@ export const deleteSponsor = (id: string): boolean => {
 
 // Budget operations
 export const getBudgets = (eventId?: string): Budget[] => {
-  const budgets = readJsonFile(budgetsFile);
+  const budgets: Budget[] = readJsonFile(budgetsFile);
   if (eventId) {
     return budgets.filter((budget: Budget) => budget.event_id === eventId);
   }
@@ -441,12 +441,12 @@ export const getBudgets = (eventId?: string): Budget[] => {
 };
 
 export const getBudgetById = (id: string): Budget | null => {
-  const budgets = readJsonFile(budgetsFile);
+  const budgets: Budget[] = readJsonFile(budgetsFile);
   return budgets.find((budget: Budget) => budget.id === id) || null;
 };
 
 export const createBudget = (budget: Omit<Budget, 'id' | 'created_at' | 'updated_at'>): Budget => {
-  const budgets = readJsonFile(budgetsFile);
+  const budgets: Budget[] = readJsonFile(budgetsFile);
   const newBudget: Budget = {
     ...budget,
     id: Date.now().toString(),
@@ -460,7 +460,7 @@ export const createBudget = (budget: Omit<Budget, 'id' | 'created_at' | 'updated
 };
 
 export const updateBudget = (id: string, budgetData: Partial<Budget>): Budget | null => {
-  const budgets = readJsonFile(budgetsFile);
+  const budgets: Budget[] = readJsonFile(budgetsFile);
   const index = budgets.findIndex((budget: Budget) => budget.id === id);
   if (index === -1) return null;
   
@@ -475,7 +475,7 @@ export const updateBudget = (id: string, budgetData: Partial<Budget>): Budget | 
 };
 
 export const deleteBudget = (id: string): boolean => {
-  const budgets = readJsonFile(budgetsFile);
+  const budgets: Budget[] = readJsonFile(budgetsFile);
   const index = budgets.findIndex((budget: Budget) => budget.id === id);
   if (index === -1) return false;
   
@@ -486,7 +486,7 @@ export const deleteBudget = (id: string): boolean => {
 
 // Task operations
 export const getTasks = (eventId?: string): Task[] => {
-  const tasks = readJsonFile(tasksFile);
+  const tasks: Task[] = readJsonFile(tasksFile);
   if (eventId) {
     return tasks.filter((task: Task) => task.eventId === eventId);
   }
@@ -494,12 +494,12 @@ export const getTasks = (eventId?: string): Task[] => {
 };
 
 export const getTaskById = (id: string): Task | null => {
-  const tasks = readJsonFile(tasksFile);
+  const tasks: Task[] = readJsonFile(tasksFile);
   return tasks.find((task: Task) => task.id === id) || null;
 };
 
 export const createTask = (task: Omit<Task, 'id' | 'createdAt' | 'updatedAt'>): Task => {
-  const tasks = readJsonFile(tasksFile);
+  const tasks: Task[] = readJsonFile(tasksFile);
   const newTask: Task = {
     ...task,
     id: Date.now().toString(),
@@ -513,7 +513,7 @@ export const createTask = (task: Omit<Task, 'id' | 'createdAt' | 'updatedAt'>): 
 };
 
 export const updateTask = (id: string, taskData: Partial<Task>): Task | null => {
-  const tasks = readJsonFile(tasksFile);
+  const tasks: Task[] = readJsonFile(tasksFile);
   const index = tasks.findIndex((task: Task) => task.id === id);
   if (index === -1) return null;
   
@@ -528,7 +528,7 @@ export const updateTask = (id: string, taskData: Partial<Task>): Task | null => 
 };
 
 export const deleteTask = (id: string): boolean => {
-  const tasks = readJsonFile(tasksFile);
+  const tasks: Task[] = readJsonFile(tasksFile);
   const index = tasks.findIndex((task: Task) => task.id === id);
   if (index === -1) return false;
   
