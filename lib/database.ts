@@ -280,7 +280,7 @@ export const getEventById = (id: string): Event | null => {
 
 export const updateEvent = (id: string, updates: Partial<Event>): Event | null => {
   const events: Event[] = readJsonFile(eventsFile);
-  const eventIndex = events.findIndex(event => event.id === id);
+  const eventIndex = events.findIndex((event: Event) => event.id === id);
   
   if (eventIndex === -1) return null;
   
