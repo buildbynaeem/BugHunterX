@@ -1,0 +1,39 @@
+[
+  {
+    "id": "1",
+    "title": "Tech Conference 2024",
+    "date": "2024-12-15",
+    "venue": "Convention Center, Mumbai",
+    "ticket_price": 1500,
+    "description": "Join India's premier technology conference featuring keynote speeches from industry leaders, hands-on workshops on AI & Machine Learning, blockchain innovations, cloud computing strategies, and networking opportunities with 500+ tech professionals. Includes lunch, networking dinner, and exclusive swag bag.",
+    "sponsor_password": "TC2024XY",
+    "budget_limit": 150000,
+    "created_at": "2025-10-02T21:02:45.771Z",
+    "updated_at": "2025-10-02T21:02:45.771Z"
+  },
+  {
+    "title": "Startup Pitch Day",
+    "date": "2025-10-23",
+    "venue": "BKC",
+    "ticket_price": 500,
+    "description": "Shows an event that was successfully completed and reached capacity.",
+    "expected_capacity": 380,
+    "sponsor_password": "NRLBRBKF",
+    "id": "1759578333774",
+    "created_at": "2025-10-04T11:45:33.774Z",
+    "updated_at": "2025-10-04T11:46:29.315Z",
+    "budget_limit": 100000
+  },
+  {
+    "title": "Global Tech Summit 2026",
+    "date": "2026-07-17",
+    "venue": "Convention Center, NYC",
+    "ticket_price": 15000,
+    "description": "High-profile event, showing large scale and future planning.",
+    "expected_capacity": 1200,
+    "sponsor_password": "GUPIHL7Q",
+    "id": "1759578496588",
+    "created_at": "2025-10-04T11:48:16.588Z",
+    "updated_at": "2025-10-04T11:48:16.588Z"
+  }
+]

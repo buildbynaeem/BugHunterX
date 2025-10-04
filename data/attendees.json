@@ -1,0 +1,88 @@
+[
+  {
+    "id": "1",
+    "name": "John Doe",
+    "email": "john@example.com",
+    "event_id": "1",
+    "paid": true,
+    "qr_code": "Tech Conference 2024_John Doe_1759485000000",
+    "payment_id": "pay_123456789",
+    "created_at": "2025-10-02T21:02:45.772Z",
+    "updated_at": "2025-10-03T09:58:59.522Z",
+    "verified": true,
+    "verified_at": "2025-10-03T09:58:59.515Z"
+  },
+  {
+    "id": "2",
+    "name": "Jane Smith",
+    "email": "jane@example.com",
+    "event_id": "1",
+    "paid": false,
+    "created_at": "2025-10-02T21:02:45.772Z",
+    "updated_at": "2025-10-02T21:02:45.772Z"
+  },
+  {
+    "id": "4",
+    "name": "Sarah Chen",
+    "email": "sarah.chen@tech.com",
+    "event_id": "1",
+    "paid": true,
+    "qr_code": "TECH_CONF_SARAH_CHEN",
+    "payment_id": "pay_tech_001",
+    "created_at": "2025-10-02T21:25:00.000Z",
+    "updated_at": "2025-10-02T21:25:00.000Z"
+  },
+  {
+    "id": "6",
+    "name": "Emily Davis",
+    "email": "emily.davis@tech.com",
+    "event_id": "1",
+    "paid": true,
+    "qr_code": "TECH_CONF_EMILY_DAVIS",
+    "payment_id": "pay_tech_002",
+    "created_at": "2025-10-02T21:25:00.000Z",
+    "updated_at": "2025-10-02T21:25:00.000Z"
+  },
+  {
+    "id": "8",
+    "name": "Lisa Wang",
+    "email": "lisa.wang@tech.com",
+    "event_id": "1",
+    "paid": true,
+    "qr_code": "TECH_CONF_LISA_WANG",
+    "payment_id": "pay_tech_003",
+    "created_at": "2025-10-02T21:25:00.000Z",
+    "updated_at": "2025-10-02T21:25:00.000Z"
+  },
+  {
+    "id": "10",
+    "name": "Maria Garcia",
+    "email": "maria.garcia@tech.com",
+    "event_id": "1",
+    "paid": false,
+    "created_at": "2025-10-02T21:25:00.000Z",
+    "updated_at": "2025-10-02T21:25:00.000Z"
+  },
+  {
+    "id": "12",
+    "name": "Rachel Brown",
+    "email": "rachel.brown@tech.com",
+    "event_id": "1",
+    "paid": true,
+    "qr_code": "TECH_CONF_RACHEL_BROWN",
+    "payment_id": "pay_tech_004",
+    "created_at": "2025-10-02T21:25:00.000Z",
+    "updated_at": "2025-10-02T21:25:00.000Z"
+  },
+  {
+    "id": "14",
+    "name": "Anna Thompson",
+    "email": "anna.thompson@tech.com",
+    "event_id": "1",
+    "paid": true,
+    "qr_code": "TECH_CONF_ANNA_THOMPSON",
+    "payment_id": "pay_tech_005",
+    "created_at": "2025-10-02T21:25:00.000Z",
+    "updated_at": "2025-10-02T21:25:00.000Z"
+  }
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "1",
+    "name": "TechCorp",
+    "event_id": "1",
+    "impressions": 1250,
+    "booth_visits": 180,
+    "engagement_rate": 14.4,
+    "created_at": "2025-10-02T21:02:45.772Z",
+    "updated_at": "2025-10-02T21:02:45.772Z"
+  },
+  {
+    "id": "2",
+    "name": "InnovateLab",
+    "event_id": "1",
+    "impressions": 890,
+    "booth_visits": 120,
+    "engagement_rate": 13.5,
+    "created_at": "2025-10-02T21:02:45.772Z",
+    "updated_at": "2025-10-02T21:02:45.772Z"
+  },
+  {
+    "id": "3",
+    "name": "CloudTech Solutions",
+    "event_id": "1",
+    "impressions": 2100,
+    "booth_visits": 285,
+    "engagement_rate": 13.6,
+    "created_at": "2025-10-02T21:25:00.000Z",
+    "updated_at": "2025-10-02T21:25:00.000Z"
+  },
+  {
+    "id": "4",
+    "name": "AI Innovations",
+    "event_id": "1",
+    "impressions": 1800,
+    "booth_visits": 245,
+    "engagement_rate": 13.6,
+    "created_at": "2025-10-02T21:25:00.000Z",
+    "updated_at": "2025-10-02T21:25:00.000Z"
+  },
+  {
+    "id": "5",
+    "name": "Blockchain Ventures",
+    "event_id": "1",
+    "impressions": 1650,
+    "booth_visits": 195,
+    "engagement_rate": 11.8,
+    "created_at": "2025-10-02T21:25:00.000Z",
+    "updated_at": "2025-10-02T21:25:00.000Z"
+  },
+  {
+    "id": "6",
+    "name": "DataFlow Analytics",
+    "event_id": "1",
+    "impressions": 1450,
+    "booth_visits": 180,
+    "engagement_rate": 12.4,
+    "created_at": "2025-10-02T21:25:00.000Z",
+    "updated_at": "2025-10-02T21:25:00.000Z"
+  },
+  {
+    "id": "12",
+    "name": "DevOps Solutions",
+    "event_id": "1",
+    "impressions": 1350,
+    "booth_visits": 170,
+    "engagement_rate": 12.6,
+    "created_at": "2025-10-02T21:25:00.000Z",
+    "updated_at": "2025-10-02T21:25:00.000Z"
+  }
+]
